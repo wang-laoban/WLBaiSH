@@ -55,6 +55,10 @@ go run main.go
 - 提取的 Shell 命令（如：`cat /etc/os-release | grep PRETTY_NAME`）
 - 实际执行结果（如：`PRETTY_NAME="Ubuntu 20.04.6 LTS"`）
 
+### 📷 页面截图
+
+![WLBaiSH 页面截图](doc/Snipaste_2025-06-12_18-13-09.png)
+
 ## 🛡️ 安全说明
 
 - 本地仅允许访问预设的 SSH 终端或本地环境，请勿直接开放公网使用。
