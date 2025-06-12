@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LLM Shell 控制终端</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body { padding: 2rem; }
+    #shellOutput { white-space: pre-wrap; background: #f8f9fa; padding: 1rem; height: 400px; overflow-y: scroll; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h4>与大模型对话</h4>
+      <textarea id="userMessage" class="form-control" rows="5"></textarea>
+      <button id="sendBtn" class="btn btn-primary mt-2">发送</button>
+    </div>
+    <div class="col-md-6">
+      <h4>Shell 执行结果</h4>
+      <div id="shellOutput"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById("sendBtn").addEventListener("click", () => {
+  const message = document.getElementById("userMessage").value;
+  fetch("/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message })
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("shellOutput").innerText =
+      (data.output || '') + (data.error ? `\\n[Error]\\n${data.error}` : '');
+  })
+  .catch(err => {
+    document.getElementById("shellOutput").innerText = '请求失败：' + err;
+  });
+});
+</script>
+</body>
+</html>
+
