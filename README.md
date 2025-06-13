@@ -58,6 +58,9 @@ go run main.go
 ### 📷 页面截图
 
 ![WLBaiSH 页面截图](doc/Snipaste_2025-06-13_10-11-32.png)
+
+### 🎥 演示视频
+
 [![视频标题](https://img.youtube.com/vi/g39tS9-DJbk/0.jpg)](https://youtu.be/g39tS9-DJbk)
 
 ## 🛡️ 安全说明
